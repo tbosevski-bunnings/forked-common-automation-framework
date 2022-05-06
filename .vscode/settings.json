@@ -1,0 +1,7 @@
+{
+  "javascript.validate.enable": false,
+  "cucumberautocomplete.steps": ["./src/step-definitions/**/*.ts"],
+  "cucumberautocomplete.syncfeatures": "./src/features/*.feature",
+  "editor.formatOnSave": true,
+  "jestrunner.configPath": "./config/jest.config.js"
+}
