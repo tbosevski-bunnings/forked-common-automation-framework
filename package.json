@@ -1,0 +1,33 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "precucumber": "rimraf reports && mkdir reports && echo {} > reports/report.json",
+    "transpile": "rimraf dist && babel --extensions .ts --out-dir dist src",
+    "cucumber": "yarn transpile && cucumber-js",
+    "cucumber:localhost": "NODE_ENV=localhost COMMON_CONFIG_FILE=env/common.env yarn cucumber",
+    "cucumber:production": "NODE_ENV=production COMMON_CONFIG_FILE=env/common.env yarn cucumber",
+    "postcucumber": "COMMON_CONFIG_FILE=env/common.env ts-node ./src/reporter/cucumber-report.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@cucumber/cucumber": "^8.0.0-rc.1",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "axe-html-reporter": "^2.2.3",
+    "axe-playwright": "^1.1.9",
+    "cucumber-html-reporter": "^5.5.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.14.0",
+    "faker": "^5.5.3",
+    "playwright": "^1.16.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}
